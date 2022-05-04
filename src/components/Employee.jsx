@@ -1,7 +1,7 @@
-export const Employee = ({emp}) => {
+export const Employee = ({employee}) => {
 	return (
 		<div className="employee">
-			{`${emp.firstName} ${emp.lastName}`}
+			{`${employee.firstName} ${employee.lastName}`}
 		</div>
 	);
 };
