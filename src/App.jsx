@@ -5,15 +5,12 @@ const employeesUrl =
 	'https://raw.githubusercontent.com/graphql-compose/graphql-compose-examples/master/examples/northwind/data/json/employees.json';
 
 function App() {
-	const [employees, setEmployees] = useState([{firstName: 'test', lastName: 'test2'}]);
+	const [employees, setEmployees] = useState([]);
 
-	console.log(typeof employees);
 	useEffect(() => {
 		(async () => {
-			// const response = await fetch(employeesUrl);
-			// const _employees = await response.json();
-			const _employees = [...employees]; 
-			_employees.push({ firstName: '222', lastName: '22222' });
+			const response = await fetch(employeesUrl);
+			const _employees = await response.json();
 			setEmployees(_employees);
 		})();
 	}, []);
