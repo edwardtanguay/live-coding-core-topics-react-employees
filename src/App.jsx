@@ -15,7 +15,7 @@ function App() {
 			try {
 				const response = await fetch(employeesUrl);
 				const _employees = await response.json();
-				setEmployeeOfTheWeek(_employees[3]);
+				// setEmployeeOfTheWeek(_employees[3]);
 				setEmployees(_employees);
 			} catch (e) {
 				console.log(e.message);
@@ -26,8 +26,12 @@ function App() {
 	return (
 		<div className="App">
 			<h1>Employees</h1>
-			<h2>Employee of the week:</h2>
-			<Employee employee={employeeOfTheWeek} />
+			{Object.keys(employeeOfTheWeek).length > 0 && (
+				<>
+					<h2>Employee of the week:</h2>
+					<Employee employee={employeeOfTheWeek} />
+				</>
+			)}
 			<h2>Full list:</h2>
 			<Employees employees={employees} />
 		</div>
